@@ -1,4 +1,6 @@
 import fetch from 'isomorphic-fetch';
+import {polyfill as promisePolyfill} from 'es6-promise';
+promisePolyfill();
 
 const url = 'https://hacker-news.firebaseio.com/v0';
 

@@ -1,12 +1,12 @@
-import {List} from 'immutable';
+import {OrderedSet} from 'immutable';
+import makeReducer from '../make-reducer.js';
 
 const reducers = {
   ADD_TO_FAVORITE: (favorites, {id}) => 
-    favorites.unshift(id),
+    favorites.add(id),
 
   SET_FAVORITES: (favorites, {list}) =>
-    List(list)
+    OrderedSet(list)
 };
 
-export default (favorites = List(), action) => 
-  action.type in reducers? reducers[action.type](favorites, action): favorites;
+export default makeReducer(reducers, OrderedSet());

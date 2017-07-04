@@ -8,9 +8,10 @@ import onMount from '../src/on-mount-hoc.jsx';
 
 describe('onMount', () => {
   const CompDummy = () => <div>component</div>;
+
   it('dispatch action on mount', () => {
-    const actionCreator = () => ({type: 'FETCH'});
-    const reducer = (state = false, action) => action.type == 'FETCH';
+    const actionCreator = () => ({type: 'MOUNTED'});
+    const reducer = (state = false, action) => action.type == 'MOUNTED';
     const store = createStore(reducer);
     
     const Comp = onMount(actionCreator)(CompDummy);

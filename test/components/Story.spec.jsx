@@ -4,7 +4,7 @@ import {mount} from 'enzyme';
 import {createStore, applyMiddleware} from 'redux';
 import thunk from 'redux-thunk';
 import {Provider} from 'react-redux';
-import {List} from 'immutable';
+import {OrderedSet} from 'immutable';
 
 import reducer from '../../src/reducer.js';
 import {setStory} from '../../src/actions/stories.js';
@@ -31,7 +31,7 @@ describe('Story component', () => {
 
     expect(story.find('.story')).to.have.length(1);
     expect(story.find('.story .title').text()).to.eql(storyMock.title);
-    expect(story.find('.story a').prop('href')).to.eql(storyMock.url);
+    expect(story.find('.story .url').prop('href')).to.eql(storyMock.url);
     expect(story.find('.story .time')).to.have.length(1);
   });
 
@@ -40,7 +40,7 @@ describe('Story component', () => {
     
     story.find('.like').simulate('click');
 
-    expect(store.getState().get('favorites')).to.eql(List(['1']));
+    expect(store.getState().get('favorites')).to.eql(OrderedSet(['1']));
   });
 
   describe('Story lifecycle', () => {

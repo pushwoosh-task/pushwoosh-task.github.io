@@ -4,6 +4,7 @@ import {Provider} from 'react-redux';
 import {Route, Switch} from 'react-router';
 import {ConnectedRouter} from 'react-router-redux';
 
+import Menu from './Menu.jsx';
 import Feed from './Feed.jsx';
 import Favorites from './Favorites.jsx';
 
@@ -11,6 +12,7 @@ const App = ({store, history}) =>
   <Provider store={store}>
     <ConnectedRouter history={history}>
       <div>
+      <Menu />
         <Switch>
           <Route exact path="/" component={Feed} />
           <Route path="/favorites" component={Favorites} />

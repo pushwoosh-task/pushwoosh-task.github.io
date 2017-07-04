@@ -1,0 +1,21 @@
+.navbar ul li .active{
+  font-weight: bold
+}
+
+.story .title{
+  color: inherit;
+}
+
+.story .time{
+  color: gray;
+}
+
+.pages{
+  text-align: center
+}
+
+.pages .page, 
+.pages .nextPage, 
+.pages .prevPage{
+  cursor: pointer;
+}
